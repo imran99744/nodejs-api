@@ -12,7 +12,7 @@ app.get('/api/hello', async (req, res) => {
   try {
     const hostname = os.hostname();
     const datetime = moment().format('YYYY-MM-DD HH:mm');
-    const version = '3.3';
+    const version = '3.4';
 
     // Fetch weather data for Dhaka
     const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
