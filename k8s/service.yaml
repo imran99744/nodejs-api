@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
-  labels:
-    app: nginx
+  name: nodejs-api
 spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 80
   selector:
-    app: nginx
+    app: nodejs-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
   type: LoadBalancer

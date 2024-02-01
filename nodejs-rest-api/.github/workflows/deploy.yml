@@ -33,7 +33,7 @@ jobs:
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set default.region <your-region>
+          aws configure set default.region us-east-1
           aws eks --region us-east-1 update-kubeconfig --name my-eks-cluster
 
       - name: Install Dependencies
@@ -46,13 +46,13 @@ jobs:
           echo "::set-output name=version::$(echo ${GITHUB_REF#refs/tags/})"
 
       - name: Build Docker Image
-        run: docker build -t "${DOCKER_HUB_REGISTRY}/${DOCKER_HUB_USERNAME}/my-nodejs-api:${{ steps.get_release_version.outputs.version }}" .
+        run: docker build -t "${DOCKER_HUB_REGISTRY}/${DOCKER_HUB_USERNAME}/nodejs-api:${{ steps.get_release_version.outputs.version }}" .
 
       - name: Log in to Docker Hub
         run: echo "${DOCKER_HUB_PASSWORD}" | docker login -u "${DOCKER_HUB_USERNAME}" --password-stdin "${DOCKER_HUB_REGISTRY}"
 
       - name: Push Docker Image to Docker Hub
-        run: docker push "${DOCKER_HUB_REGISTRY}/${DOCKER_HUB_USERNAME}/my-nodejs-api:${{ steps.get_release_version.outputs.version }}"
+        run: docker push "${DOCKER_HUB_REGISTRY}/${DOCKER_HUB_USERNAME}/nodejs-api:${{ steps.get_release_version.outputs.version }}"
 
       - name: Deploy to EKS
         run: |

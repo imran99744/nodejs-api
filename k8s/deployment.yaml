@@ -1,19 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nodejs-api
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
-  replicas: 1
+      app: nodejs-api
   template:
     metadata:
       labels:
-        app: nginx
+        app: nodejs-api
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: nodejs-api
+        image: "DOCKER_HUB_REGISTRY/DOCKER_HUB_USERNAME/nodejs-api:RELEASE_VERSION"
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+        env:
+        - name: WEATHER_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: nodejs-api-secrets
+              key: WEATHER_API_KEY
