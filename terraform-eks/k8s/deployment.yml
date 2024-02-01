@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nodejs-api
-        image: imran19977/nodejs-api:v3.11"
+        image: imran19977/nodejs-api:v3.12"
 
         ports:
         - containerPort: 3000
