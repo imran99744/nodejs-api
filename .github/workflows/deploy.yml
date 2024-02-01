@@ -1,4 +1,4 @@
-name: Node.js REST API CI/CD 123
+name: Node.js REST API CI/CD
 
 on:
   release:
