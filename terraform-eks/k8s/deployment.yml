@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nodejs-api
-        image: "DOCKER_HUB_REGISTRY/DOCKER_HUB_USERNAME/nodejs-api:RELEASE_VERSION"
+        image: imran19977/nodejs-api:${{ steps.get_release_version.outputs.version }}
         ports:
         - containerPort: 3000
         env:

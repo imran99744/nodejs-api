@@ -62,6 +62,5 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
 
-        
       - name: Verify Deployment
         run: kubectl get pods --namespace default
