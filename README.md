@@ -4,4 +4,5 @@ This project demonstrates the development, deployment, and management of a REST 
 
 ## Features
 REST API Endpoints:
-- /api/hello: Returns the hostname, current datetime, API version, and weather data for Dhaka.
+- `/api/hello:` Returns the hostname, current datetime, API version, and weather data for Dhaka.
+- 
