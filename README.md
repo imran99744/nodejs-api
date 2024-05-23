@@ -20,4 +20,7 @@ Kubernetes Deployment:
 - Kubernetes manifests for deploying the application.
 - Secure handling of third-party API credentials using Kubernetes secrets or config maps.
 
+## Conclusion
+This project provides a comprehensive example of developing a REST API, containerizing the application, and deploying it to a Kubernetes cluster using Terraform. The inclusion of a CI/CD pipeline ensures that the deployment process is automated and consistent. By following the provided steps, you can extend and adapt this project to suit your specific needs and deployment environments.
+
 
